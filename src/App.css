@@ -1,3 +1,7 @@
-.App{
-  width: 100%;
+.mainPagesDivs{
+display: flex;
+flex-direction: column-reverse;
+}
+.Mapa{
+    border-radius: 50px;
 }
