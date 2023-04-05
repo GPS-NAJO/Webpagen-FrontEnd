@@ -2,8 +2,9 @@ export interface GpsJson {
   latitud: number;
   longitud: number;
   altitud: number;
-  timestamp: number;
+  timestamp: any;
   id: number;
+  fecha: any;
 }
 export default async function () {
   // const resp = await fetch("https://jsonplaceholder.typicode.com/users",{method:"GET"})
@@ -19,13 +20,19 @@ export default async function () {
     Math.random() * (maxLongitude - minLongitude) + minLongitude;
   const altitude = 0;
   const id = 664;
-  const timestamp = 1686749580000;
+  const hora = Math.floor(Math.random() * 24);
+  const minutes = Math.floor(Math.random() * 60);
+  const timestamp = `${hora.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")} PM`;
+  const fecha = "Lunes, 03/04/24";
   const gpsjson = {
     latitud: latitude,
     longitud: longitude,
     altitud: altitude,
     timestamp: timestamp,
     id: id,
+    fecha: fecha,
   };
   return gpsjson;
 }

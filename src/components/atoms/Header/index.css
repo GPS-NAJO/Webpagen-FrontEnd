@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    color: white;
+    height: 20px;
+    justify-content: right;
+    margin-right: 40px;
+    padding: 20px;
+    padding-left: 0;
+    align-self: flex-end;
+}
+.services, .home , .contact{
+    font-size: 14px;
+    text-align: end;
+    width: 88px;
+    color: white;
+}

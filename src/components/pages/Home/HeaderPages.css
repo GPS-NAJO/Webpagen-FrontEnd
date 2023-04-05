@@ -1,0 +1,36 @@
+.greent, .forcars{
+    font-size: 124px;
+    margin: 0;
+
+}
+.greent{
+    color:green;
+    padding: 0;
+}
+.forcars{
+    color: white;
+    top:-116px;
+    position: relative;
+}
+
+
+p{
+    color: white;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: lighter;
+}
+.irA{
+    font-size: 18px;
+    font-style: initial;
+}
+.initcontainer2{
+    padding-inline: 63px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 60px);
+}
+a{
+    width: fit-content;
+}
