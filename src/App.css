@@ -1,7 +1,15 @@
+<<<<<<< Updated upstream
 .mainPagesDivs{
 display: flex;
 flex-direction: column-reverse;
 }
 .Mapa{
     border-radius: 50px;
+=======
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #050505;
+>>>>>>> Stashed changes
 }
