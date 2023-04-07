@@ -1,17 +1,16 @@
-import {
-  TileLayer,
-  Marker,
-  Popup,
-  MapContainer,
-  Polyline,
-} from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import L, { LatLngExpression } from "leaflet";
 import { useEffect, useState } from "react";
+import {
+  MapContainer,
+  Marker,
+  Polyline,
+  Popup,
+  TileLayer,
+} from "react-leaflet";
 import getCoordinates, { GpsJson } from "../../api/getCoordinates";
 import LocationInfo from "../../atoms/LocationInfo";
-import "../../atoms/LocationInfo/index.css";
-import "leaflet/dist/leaflet.css";
+import styles from "./styles.module.css";
 
 // Changing marker icon
 const MarkerIcon = L.icon({
@@ -34,9 +33,9 @@ function MapRealTime() {
   }, []);
 
   return (
-    <div className="Home">
-      <div className="mapaytexto">
-        <div className="mapa">
+    <div className={styles.Home}>
+      <div className={styles.mapaytexto}>
+        <div className={styles.mapa}>
           <MapContainer
             center={
               coordData == null
@@ -46,7 +45,7 @@ function MapRealTime() {
             zoom={13}
             scrollWheelZoom={true}
             style={{
-              height: "calc(100vh - 70px)",
+              height: "calc(100vh - 90px)",
               borderRadius: "30px",
               width: "100%",
             }}

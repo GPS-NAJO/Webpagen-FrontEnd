@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  color: white;
+  height: 66px;
+  justify-content: space-between;
+  margin-right: 40px;
+  padding: 20px;
+  padding-left: 0;
+  align-self: flex-end;
+}
+.services,
+.home,
+.contact {
+  font-size: 14px;
+  text-align: end;
+  width: 88px;
+  color: white;
+  align-self: center;
+  justify-self: right;
+}
+.logopic {
+  width: 120px;
+  height: 60px;
+  align-self: center;
+}
+.logocontainer {
+  display: flex;
+  padding-inline: 20px;
+}
+.headtextcontainer {
+  display: flex;
+}

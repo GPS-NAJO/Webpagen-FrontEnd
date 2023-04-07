@@ -1,0 +1,76 @@
+.greent {
+  color: black;
+  padding: 0;
+  font-size: 104px;
+  margin: 0;
+  font-weight: bold;
+}
+.forcars {
+  color: white;
+  top: -39px;
+  position: relative;
+  margin: 0;
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.irA {
+  font-size: 18px;
+  font-style: initial;
+}
+.initcontainer2 {
+  padding-inline: 42px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 110px);
+  width: 100%;
+  flex: 1;
+  background-color: green;
+  padding-block: 24px;
+}
+a {
+  width: fit-content;
+}
+.buttoncontainer {
+  display: flex;
+  flex-direction: row;
+
+  width: 50%;
+  height: fit-content;
+  justify-content: center;
+  align-self: left;
+}
+.homediv {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  width: 100%;
+}
+.carro {
+  width: 425px;
+}
+
+.histo,
+.timereal {
+  width: 401px;
+  background-color: white;
+  border-radius: 20px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px;
+  font-size: 15px;
+  font-style: italic;
+  color: black;
+  margin-bottom: 126px;
+  margin-right: 9px;
+}
+.hometext {
+  color: white;
+  padding-bottom: 40px;
+  font-size: 20px;
+  font-style: italic;
+}

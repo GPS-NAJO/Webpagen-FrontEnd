@@ -1,18 +1,18 @@
-import {
-  TileLayer,
-  Marker,
-  Popup,
-  MapContainer,
-  Polyline,
-} from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import L, { LatLngExpression } from "leaflet";
 import { useEffect, useState } from "react";
+import {
+  MapContainer,
+  Marker,
+  Polyline,
+  Popup,
+  TileLayer,
+} from "react-leaflet";
 import getCoordinates, { GpsJson } from "../../api/getCoordinates";
-import "leaflet/dist/leaflet.css";
 import SliderRuta from "../../atoms/sliders/SliderRuta/index";
-import "../../pages/Historics/index.css";
-import Calendar from "../../molecules/Calendar/index";
+import styles from "./styles.module.css";
+import moment, { Moment } from "moment";
+
 // Changing marker icon
 const MarkerIcon = L.icon({
   iconUrl: "assets/carmapa.png",
@@ -22,12 +22,15 @@ const MarkerIcon = L.icon({
 
 export interface Filter {
   pointSelected?: number;
-  startDate?: Date;
-  endDate?: Date;
+  startDate?: Moment;
+  endDate?: Moment;
 }
 
 function MapHistorics() {
-  const [filter, setFilter] = useState<Filter>({});
+  const [filter, setFilter] = useState<Filter>({
+    startDate: moment(),
+    endDate: moment(),
+  });
   const [route, setRoute] = useState<GpsJson[]>([]);
 
   useEffect(() => {
@@ -45,9 +48,9 @@ function MapHistorics() {
   const lastPoint = route[route.length - 1];
 
   return (
-    <div className="Home">
-      <div className="mapaytexto">
-        <div className="mapa">
+    <div className={styles.Home}>
+      <div className={styles.mapaytexto}>
+        <div className={styles.mapa}>
           <MapContainer
             center={
               !lastPoint

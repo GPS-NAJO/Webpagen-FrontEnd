@@ -1,5 +1,4 @@
-import "./index.css";
-import Header from "../../atoms/Header";
+import Header from "../../molecules/Header";
 import MapHistorics from "../../molecules/MapHistorics";
 
 export default function Historic() {

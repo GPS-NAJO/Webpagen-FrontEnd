@@ -20,6 +20,7 @@
     "nouislider-react": "^3.4.1",
     "react": "^18.2.0",
     "react-advanced-datetimerange-picker": "^1.0.14",
+    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-leaflet": "^4.2.1",

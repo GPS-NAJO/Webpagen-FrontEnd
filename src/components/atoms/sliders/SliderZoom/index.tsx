@@ -1,7 +1,5 @@
 import { Slider, Typography } from "@mui/material";
 
-import "../../../pages/Historics/index.css";
-
 function SliderRuta() {
   return (
     <>

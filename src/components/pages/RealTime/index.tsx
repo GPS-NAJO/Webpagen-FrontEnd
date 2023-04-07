@@ -1,6 +1,6 @@
-import "../../../App.css";
-import Header from "../../atoms/Header";
+import Header from "../../molecules/Header";
 import MapRealTime from "../../molecules/MapRealTime";
+
 function RealTime() {
   return (
     <>
