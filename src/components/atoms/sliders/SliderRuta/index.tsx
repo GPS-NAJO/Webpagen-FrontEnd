@@ -33,12 +33,27 @@ function SliderRuta({ data, filter, setFilter }: sliderProps) {
         </div>
       </div>
       <Calendar filter={filter} setFilter={setFilter} />
+      <h4>Conoce cuando estuvo tu vehiculo en la zona marcada</h4>
       <Typography
         className={styles.Typography}
         style={{ fontSize: "16px", color: "white", marginTop: "18px" }}
       >
         Storage: {coordSelect?.timestamp}
       </Typography>
+      <Slider
+        size="medium"
+        color="secondary"
+        value={filter.pointSelected}
+        min={0}
+        step={1}
+        max={data?.length ?? 0}
+        aria-labelledby="non-linear-slider"
+        onChange={(event, dato) => {
+          setFilter((prev) => ({ ...prev, pointSelected: dato as number }));
+        }}
+        style={{ marginTop: "16px" }}
+      />
+      <h4>Ajusta el zoom</h4>
       <Slider
         size="medium"
         color="secondary"
