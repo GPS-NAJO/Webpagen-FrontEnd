@@ -1,9 +1,10 @@
 // @ts-ignore
+// @ts-ignore
 import DateTimeRangeContainer from "react-advanced-datetimerange-picker";
 import moment, { Moment } from "moment";
 import { FormControl } from "react-bootstrap";
-import { useState } from "react";
 import { Filter } from "../MapHistorics";
+import styles from "./styles.module.css";
 
 interface Props {
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
@@ -25,7 +26,7 @@ export default function Calendar({ filter, setFilter }: Props) {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <DateTimeRangeContainer
         start={filter.startDate}
         standaloneMode
@@ -37,6 +38,10 @@ export default function Calendar({ filter, setFilter }: Props) {
         applyCallback={(startDate: Moment, endDate: Moment) =>
           setFilter((prev) => ({ ...prev, startDate, endDate }))
         }
+        className={styles.container}
+        style={{
+          width: "100%",
+        }}
       >
         <FormControl
           id="formControlsTextB"
@@ -45,6 +50,7 @@ export default function Calendar({ filter, setFilter }: Props) {
           value={`${filter.startDate?.format(
             "DD/MM/YYYY HH:mm"
           )} - ${filter.endDate?.format("DD/MM/YYYY HH:mm")}`}
+          className={styles.container}
         />
       </DateTimeRangeContainer>
     </div>

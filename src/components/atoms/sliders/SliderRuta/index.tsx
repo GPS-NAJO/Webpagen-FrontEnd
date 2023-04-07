@@ -26,20 +26,22 @@ function SliderRuta({ data, filter, setFilter }: sliderProps) {
       <div className={styles.idandbuttoncontainer}>
         <div className={styles.idhistoricos}>
           <RiCarWashingFill
-            style={{ color: "black", fontSize: "5rem", paddingRight: "1rem" }}
+            style={{ color: "black", fontSize: "4rem", paddingRight: "1rem" }}
           />
           <span>{id}</span>
           <a></a>
         </div>
       </div>
+      <p>Elige la fecha y conoce la ruta</p>
       <Calendar filter={filter} setFilter={setFilter} />
-      <h4>Conoce cuando estuvo tu vehiculo en la zona marcada</h4>
+      <p>Elige la ubicación y conoce su frecuencia</p>
       <Typography
         className={styles.Typography}
         style={{ fontSize: "16px", color: "white", marginTop: "18px" }}
       >
         Storage: {coordSelect?.timestamp}
       </Typography>
+
       <Slider
         size="medium"
         color="secondary"
@@ -53,7 +55,7 @@ function SliderRuta({ data, filter, setFilter }: sliderProps) {
         }}
         style={{ marginTop: "16px" }}
       />
-      <h4>Ajusta el zoom</h4>
+      <p>Ajusta el zoom para más precisión</p>
       <Slider
         size="medium"
         color="secondary"
@@ -65,7 +67,6 @@ function SliderRuta({ data, filter, setFilter }: sliderProps) {
         onChange={(event, dato) => {
           setFilter((prev) => ({ ...prev, pointSelected: dato as number }));
         }}
-        style={{ marginTop: "16px" }}
       />
       <br />
     </div>
