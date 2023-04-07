@@ -9,9 +9,10 @@ import "leaflet/dist/leaflet.css";
 import L, { LatLngExpression } from "leaflet";
 import { useEffect, useState } from "react";
 import getCoordinates, { GpsJson } from "../../api/getCoordinates";
-import "../../atoms/LocationInfo/index.css";
 import "leaflet/dist/leaflet.css";
-
+import SliderRuta from "../../atoms/sliders/SliderRuta/index";
+import "../../pages/Historics/index.css";
+import Calendar from "../../molecules/Calendar/index";
 // Changing marker icon
 const MarkerIcon = L.icon({
   iconUrl: "assets/carmapa.png",
@@ -19,18 +20,29 @@ const MarkerIcon = L.icon({
   iconAnchor: [20, 20],
 });
 
+export interface Filter {
+  pointSelected?: number;
+  startDate?: Date;
+  endDate?: Date;
+}
+
 function MapHistorics() {
-  const [coordData, setCoordData] = useState<null | GpsJson>(null);
-  const [popylineCoord, setPolylineCoord] = useState<[number, number][]>([]);
+  const [filter, setFilter] = useState<Filter>({});
+  const [route, setRoute] = useState<GpsJson[]>([]);
+
   useEffect(() => {
     async function getData() {
       const coords = await getCoordinates();
-      setCoordData(coords);
-      setPolylineCoord((prev) => [...prev, [coords.latitud, coords.longitud]]);
+      setRoute((prev) => [...prev, coords]);
     }
     getData();
     const intervalo = setInterval(getData, 6000);
+    return () => {
+      clearInterval(intervalo);
+    };
   }, []);
+
+  const lastPoint = route[route.length - 1];
 
   return (
     <div className="Home">
@@ -38,9 +50,9 @@ function MapHistorics() {
         <div className="mapa">
           <MapContainer
             center={
-              coordData == null
+              !lastPoint
                 ? [10.996802, -74.769347]
-                : [coordData.latitud, coordData.longitud]
+                : [lastPoint.latitud, lastPoint.longitud]
             }
             zoom={13}
             scrollWheelZoom={true}
@@ -54,9 +66,9 @@ function MapHistorics() {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {coordData == null ? null : (
+            {!lastPoint ? null : (
               <Marker
-                position={[coordData.latitud, coordData.longitud]}
+                position={[lastPoint.latitud, lastPoint.longitud]}
                 icon={MarkerIcon}
               >
                 <Popup>El vehivulo se encuentra aquí.</Popup>
@@ -65,10 +77,11 @@ function MapHistorics() {
 
             <Polyline
               pathOptions={{ color: "red" }}
-              positions={popylineCoord}
+              positions={route.map((item) => [item.latitud, item.longitud])}
             />
           </MapContainer>
         </div>
+        <SliderRuta data={route} filter={filter} setFilter={setFilter} />
       </div>
     </div>
   );

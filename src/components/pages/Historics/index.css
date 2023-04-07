@@ -1,0 +1,77 @@
+.sliderandtextcontainer{
+    display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+ padding-inline: 20px;
+ width: 500px;
+ align-content: center;
+ align-items: center;
+
+}
+
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mapaytexto{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.mapa{
+    width:100%;
+    padding-left: 20px;
+}
+.idhistoricos{
+    border-radius: 20px;
+    background-color: #d9d9d9;
+    width: 90%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    font-size: 20px;
+    padding-block: 20px;
+  margin-bottom: 15px;
+}
+
+.idandbuttoncontainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-block: 12px;
+    justify-items: center;
+}
+.carbutton{
+    color: white;
+    background-color: #252525;
+    border-radius: 10px;
+    height: auto; 
+    width: 58px;
+    padding-inline: 30px;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 19px;
+    align-self: center;
+    padding-block: 12px;
+    padding-inline: 12px;
+}
+h1{
+    color: white;
+}
+.textcontainer{
+    height: "calc(100vh - 70px)";
+    width: "100%";
+}

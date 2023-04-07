@@ -4,7 +4,7 @@
     position: relative;
     color: white;
     height: 20px;
-    justify-content: right;
+    justify-content: space-between;
     margin-right: 40px;
     padding: 20px;
     padding-left: 0;
@@ -15,4 +15,18 @@
     text-align: end;
     width: 88px;
     color: white;
+    align-self:center;
+    justify-self: right;
+}
+.logopic{
+    width: 120px;
+    height: 60px;
+    align-self: center;}
+.logocontainer{
+    display: flex;
+    padding-inline: 20px;
+
+}
+.headtextcontainer{
+    display: flex;
 }

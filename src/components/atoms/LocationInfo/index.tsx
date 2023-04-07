@@ -2,6 +2,7 @@ import { GpsJson } from "../../api/getCoordinates";
 import "./index.css";
 import { RiCarWashingFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { BsFillCalendarCheckFill } from "react-icons/bs";
 type CoordsDivsProps = {
   coordData: GpsJson;
 };
@@ -34,8 +35,11 @@ function LocationInfo(props: CoordsDivsProps) {
           <p className="latnum">{latitud}</p>
         </div>
       </div>
-      <Link to="/historics">
-        <button>Consultar historicos</button>
+      <Link to="/historics" className="historicbutton">
+        <BsFillCalendarCheckFill
+          style={{ fontSize: "1.2rem", paddingRight: "0.5rem" }}
+        />{" "}
+        Consultar historicos
       </Link>
     </div>
   );

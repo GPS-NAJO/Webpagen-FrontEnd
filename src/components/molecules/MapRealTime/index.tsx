@@ -12,7 +12,6 @@ import getCoordinates, { GpsJson } from "../../api/getCoordinates";
 import LocationInfo from "../../atoms/LocationInfo";
 import "../../atoms/LocationInfo/index.css";
 import "leaflet/dist/leaflet.css";
-import HeaderInf from "../../atoms/Header";
 
 // Changing marker icon
 const MarkerIcon = L.icon({
