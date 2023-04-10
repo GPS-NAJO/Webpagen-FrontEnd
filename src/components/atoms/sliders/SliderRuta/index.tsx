@@ -1,11 +1,16 @@
 import { Slider, Typography } from "@mui/material";
 import { useState } from "react";
 import { RiCarWashingFill } from "react-icons/ri";
-import { GpsJson } from "../../../api/getCoordinates";
 import Calendar from "../../../molecules/Calendar";
 import { Filter } from "../../../molecules/MapHistorics";
 import styles from "./styles.module.css";
-
+interface GpsJson {
+  latitud: number;
+  longitud: number;
+  altitud: number;
+  timestamp: any;
+  id: number;
+}
 type sliderProps = {
   data?: GpsJson[] | null;
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;

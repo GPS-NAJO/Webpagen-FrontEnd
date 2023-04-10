@@ -8,7 +8,13 @@ import {
   Popup,
   TileLayer,
 } from "react-leaflet";
-import getCoordinates, { GpsJson } from "../../api/getCoordinates";
+interface GpsJson {
+  latitud: number;
+  longitud: number;
+  altitud: number;
+  timestamp: any;
+  id: number;
+}
 import LocationInfo from "../../atoms/LocationInfo";
 import styles from "./styles.module.css";
 
@@ -24,12 +30,15 @@ function MapRealTime() {
   const [popylineCoord, setPolylineCoord] = useState<[number, number][]>([]);
   useEffect(() => {
     async function getData() {
-      const coords = await getCoordinates();
-      setCoordData(coords);
-      setPolylineCoord((prev) => [...prev, [coords.latitud, coords.longitud]]);
+      const response = await fetch('/api/gps');
+      const data = await response.json();
+      setCoordData(data);
+      setPolylineCoord((prev) => [...prev, [data.latitud, data.longitud]]);
+      console.log(data);
     }
     getData();
     const intervalo = setInterval(getData, 6000);
+    return () => clearInterval(intervalo);
   }, []);
 
   return (
