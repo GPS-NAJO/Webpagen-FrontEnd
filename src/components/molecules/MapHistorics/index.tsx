@@ -34,12 +34,12 @@
 
   function MapHistorics() {
     const [filter, setFilter] = useState<Filter>({
-      startDate: new Date("2023-02-01 00:00:00"),
+      startDate: new Date("2023-04-10 00:00:00"),
       endDate: new Date("2023-05-01 23:59:59"),
     });
     const [route, setRoute] = useState<GpsJson[]>([]);
 
-    useEffect(() => {
+    /*useEffect(() => {
       async function getData() {
         try {
           const startFormatted = moment(filter.startDate).format("YYYY-MM-DD HH:mm:ss");
@@ -53,7 +53,7 @@
       }
       getData();
     }, []);
-
+*/
     const lastPoint = route[route.length - 1];
 
     return (
