@@ -14,7 +14,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <CustomProvider theme="dark">
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </CustomProvider>
   );
 }
