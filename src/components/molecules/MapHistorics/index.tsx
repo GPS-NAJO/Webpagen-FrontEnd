@@ -52,7 +52,7 @@
         }
       }
       getData();
-    }, [filter.startDate, filter.endDate]);
+    }, []);
 
     const lastPoint = route[route.length - 1];
 
