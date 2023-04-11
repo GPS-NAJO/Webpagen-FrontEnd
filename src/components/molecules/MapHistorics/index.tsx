@@ -28,33 +28,31 @@
 
   export interface Filter {
     pointSelected?: number;
-    startDate?: Moment;
-    endDate?: Moment;
+    startDate?: Date;
+    endDate?: Date;
   }
 
   function MapHistorics() {
     const [filter, setFilter] = useState<Filter>({
-      startDate: moment(),
-      endDate: moment(),
+      startDate: new Date("2023-02-01 00:00:00"),
+      endDate: new Date("2023-05-01 23:59:59"),
     });
     const [route, setRoute] = useState<GpsJson[]>([]);
 
     useEffect(() => {
       async function getData() {
         try {
-          const response = await fetch(`/api/historics?start=${filter.startDate}&end=${filter.endDate}`);
+          const startFormatted = moment(filter.startDate).format("YYYY-MM-DD HH:mm:ss");
+          const endFormatted = moment(filter.endDate).format("YYYY-MM-DD HH:mm:ss");
+          const response = await fetch(`/api/historics?start=${startFormatted}&end=${endFormatted}`);
           const data = await response.json();
           setRoute(data);
         } catch (error) {
           console.error(error);
         }
       }
-     // getData();
-     // const intervalo = setInterval(getData, 6000);
-      return () => {
-    //    clearInterval(intervalo);
-      };
-    }, []);
+      getData();
+    }, [filter.startDate, filter.endDate]);
 
     const lastPoint = route[route.length - 1];
 
